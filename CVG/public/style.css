@@ -1,0 +1,74 @@
+:root {
+  --topbar-h: 56px;
+  --bg: #0f0f10; /* near-black */
+  --fg: #f4f4f5; /* near-white */
+  --muted: #a1a1aa;
+  --accent: #e11d48; /* rose-600 */
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 16px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica, Arial;
+}
+.topbar {
+  position: fixed; inset: 0 0 auto 0; height: var(--topbar-h);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 12px; border-bottom: 1px solid #232325; background: rgba(15,15,16,0.9);
+  backdrop-filter: blur(8px);
+}
+.topbar .brand { font-weight: 700; }
+.topbar .actions button {
+  margin-left: 8px; padding: 8px 10px; border: 1px solid #2b2b2f; background: #1a1a1d; color: var(--fg);
+  border-radius: 999px; cursor: pointer;
+}
+.topbar .actions button:hover { background: #222227; }
+
+.upload { position: fixed; top: var(--topbar-h); left: 0; right: 0; background: #121215; border-bottom: 1px solid #232325; padding: 10px; z-index: 10; }
+.hidden { display: none; }
+.upload form { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.upload input[type="text"] { flex: 1; min-width: 180px; padding: 8px; }
+.upload input[type="file"] { color: var(--muted); }
+.upload button { padding: 8px 10px; }
+.upload .hint { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+
+.feed {
+  position: fixed; top: var(--topbar-h); left: 0; right: 0; bottom: 0;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+}
+.card {
+  position: relative;
+  height: 100%; /* 1 screen */
+  scroll-snap-align: start;
+  display: grid; place-items: center;
+}
+.player {
+  width: 100%; height: 100%;
+  display: grid; place-items: center;
+}
+.player video {
+  max-height: 100%; max-width: 100%;
+  border-radius: 12px; background: #000;
+}
+.meta {
+  position: absolute; left: 12px; bottom: 16px; right: 12px;
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 12px;
+}
+.meta .title {
+  font-size: 15px; color: #eaeaf0; text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+}
+.controls {
+  display: flex; align-items: center; gap: 8px;
+}
+.controls button {
+  padding: 8px 10px; border: 1px solid #2b2b2f; background: rgba(0,0,0,0.5); color: var(--fg);
+  border-radius: 10px; cursor: pointer;
+}
+.controls .likes { min-width: 3ch; text-align: right; color: #ffd7df; }
+.controls .likeBtn { border-color: var(--accent); }
+
+.empty { color: var(--muted); text-align: center; margin-top: 24px; }
+.loading { text-align: center; color: var(--muted); padding: 12px; }

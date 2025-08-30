@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TikTok‑Lite</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">TikTok‑Lite</div>
+      <div class="actions">
+        <button id="muteToggle" type="button" aria-pressed="true">Mute: ON</button>
+        <button id="uploadToggle" type="button">Upload</button>
+      </div>
+    </header>
+
+    <section id="uploadPanel" class="upload hidden">
+      <form id="uploadForm">
+        <input name="title" type="text" placeholder="Video title" required />
+        <input name="video" type="file" accept="video/mp4,video/webm" required />
+        <button type="submit">Submit</button>
+        <button type="button" id="closeUpload">Cancel</button>
+      </form>
+      <p class="hint">Tip: use a short MP4/WebM clip (≤ 50 MB) for snappy playback.</p>
+    </section>
+
+    <main id="feed" class="feed" aria-live="polite"></main>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>
