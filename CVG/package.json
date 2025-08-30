@@ -1,0 +1,19 @@
+{
+"name": "cvg",
+"version": "1.0.0",
+"description": "Minimal TikTok-like web app (Node + Vanilla JS)",
+"main": "server.js",
+"scripts": {
+"start": "node server.js",
+"dev": "nodemon server.js"
+},
+"license": "MIT",
+"dependencies": {
+"better-sqlite3": "^9.4.0",
+"express": "^4.19.2",
+"multer": "^1.4.5-lts.1"
+},
+"devDependencies": {
+"nodemon": "^3.1.0"
+}
+}
